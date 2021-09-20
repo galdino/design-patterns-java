@@ -1,8 +1,10 @@
 package br.com.designpatterns.loja.pedido.acao;
 
-public class SalvarPedido {
+import br.com.designpatterns.loja.pedido.Pedido;
+
+public class SalvarPedido implements AcaoAposGerarPedido {
 	
-	public void executar() {
+	public void executarAcao(Pedido pedido) {
 		System.out.println("Salvar pedido no Banco de Dados");
 	}
 	

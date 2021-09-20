@@ -1,8 +1,10 @@
 package br.com.designpatterns.loja.pedido.acao;
 
-public class EnviarEmailPedido {
+import br.com.designpatterns.loja.pedido.Pedido;
+
+public class EnviarEmailPedido implements AcaoAposGerarPedido {
 	
-	public void executar() {
+	public void executarAcao(Pedido pedido) {
 		System.out.println("Enviar email com dados do novo pedido");
 	}
 	
