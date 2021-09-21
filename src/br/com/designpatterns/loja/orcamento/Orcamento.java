@@ -3,6 +3,7 @@ package br.com.designpatterns.loja.orcamento;
 import java.math.BigDecimal;
 
 import br.com.designpatterns.loja.orcamento.situacao.EmAnalise;
+import br.com.designpatterns.loja.orcamento.situacao.Finalizado;
 import br.com.designpatterns.loja.orcamento.situacao.SituacaoOrcamento;
 
 public class Orcamento {
@@ -48,6 +49,10 @@ public class Orcamento {
 
 	public void setSituacao(SituacaoOrcamento situacao) {
 		this.situacao = situacao;
+	}
+
+	public boolean isFinalizado() {
+		return this.situacao instanceof Finalizado;
 	}
 
 }
