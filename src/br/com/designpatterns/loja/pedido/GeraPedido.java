@@ -2,17 +2,21 @@ package br.com.designpatterns.loja.pedido;
 
 import java.math.BigDecimal;
 
+import br.com.designpatterns.loja.orcamento.Orcamento;
+
 public class GeraPedido {
 	
 	private String cliente;
 	private BigDecimal valorOrcamento;
 	private int quantidadeItens;
+	private Orcamento orcamento;
 	
 	//injecao de dependencias: PedidoRepository, EmailService...
-	public GeraPedido(String cliente, BigDecimal valorOrcamento, int quantidadeItens) {
+	public GeraPedido(String cliente, Orcamento orcamento) {
 		this.cliente = cliente;
-		this.valorOrcamento = valorOrcamento;
-		this.quantidadeItens = quantidadeItens;
+		this.valorOrcamento = orcamento.getValor();
+		this.quantidadeItens = orcamento.getQuantidadeItens();
+		this.orcamento = orcamento;
 	}
 	
 	public String getCliente() {
@@ -25,6 +29,10 @@ public class GeraPedido {
 
 	public int getQuantidadeItens() {
 		return quantidadeItens;
+	}
+	
+	public Orcamento getOrcamento() {
+		return orcamento;
 	}
 	
 }
