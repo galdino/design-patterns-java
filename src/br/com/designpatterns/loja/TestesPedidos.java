@@ -8,6 +8,7 @@ import br.com.designpatterns.loja.orcamento.Orcamento;
 import br.com.designpatterns.loja.pedido.GeraPedido;
 import br.com.designpatterns.loja.pedido.GeraPedidoHandler;
 import br.com.designpatterns.loja.pedido.acao.EnviarEmailPedido;
+import br.com.designpatterns.loja.pedido.acao.LogDePedido;
 import br.com.designpatterns.loja.pedido.acao.SalvarPedido;
 
 public class TestesPedidos {
@@ -20,7 +21,7 @@ public class TestesPedidos {
 		orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("150")));
 		
 		GeraPedido geraPedido = new GeraPedido(cliente, orcamento);
-		GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(Arrays.asList(new SalvarPedido(), new EnviarEmailPedido()));
+		GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(Arrays.asList(new SalvarPedido(), new EnviarEmailPedido(), new LogDePedido()));
 		geraPedidoHandler.execute(geraPedido);
 	}
 
